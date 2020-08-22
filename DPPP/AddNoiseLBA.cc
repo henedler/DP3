@@ -81,8 +81,7 @@ namespace DP3 {
 
       // Name of the column to add the noise (at the moment not used, just a placeholder)
       string column = "DATA";
-      DPBuffer itsBuf;
-      //////itsBuf.getData().assign (buf.getData());
+      ///////itsBuf.getData().assign (buf.getData());
       //itsBuf.setData(buf.getData());
       // Read the MODEL_DATA
       if (mode == 10)

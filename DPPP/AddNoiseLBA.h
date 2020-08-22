@@ -70,7 +70,7 @@ namespace DP3 {
     private:
       DPInput*         itsInput;
       string           itsName;
-      DPBuffer         itsBuffer;
+      DPBuffer         itsBuf;
 
       NSTimer          itsTimer;
       int              nsteps;

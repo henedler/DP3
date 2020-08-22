@@ -72,9 +72,20 @@ namespace DP3 {
     bool DummyStep::process (const DPBuffer& bufin)
     {
       itsTimer.start();
-      itsBuffer.copy (bufin);
-      itsInput->fetchUVW(bufin, itsBuffer, itsTimer);
-      itsInput->fetchWeights(bufin, itsBuffer, itsTimer);
+      casacore::Cube<casacore::Complex> itsModelData;
+      itsInput->getModelData (bufin.getRowNrs(), itsModelData);
+      itsBuffer.setData(itsModelData);
+
+      Array<Complex>::contiter outdIter = itsBuffer.getData().cbegin();
+      Array<Complex>::const_contiter indIter = bufin.getData().cbegin();
+              for(int i=0; i<10; i++)
+              {
+                      cout << "--- " << *outdIter << "  " << *indIter << endl;
+                      outdIter++;
+                      indIter++;
+              }
+
+
 
       itsTimer.stop();
       getNextStep()->process(itsBuffer);
